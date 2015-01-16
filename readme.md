@@ -1,12 +1,10 @@
 # Acxel: The Pixel Maker
 
-by [@mrspeaker](http://www.twitter.com/mrspeaker)
+v1.0 by [@mrspeaker](http://www.twitter.com/mrspeaker)
 
-v1.0
+Sublime Text plugin for converting text selections to  HTML5 canvas image code.
 
-**Sublime selection -> HTML5 canvas image code**
-
-![mrspeaker](https://cloud.githubusercontent.com/assets/129330/5779970/011dfdea-9d75-11e4-9ca3-6e06c4d3b2b4.png)
+![mrspeaker](https://cloud.githubusercontent.com/assets/129330/5779970/011dfdea-9d75-11e4-9ca3-6e06c4d3b2b4.png) generated from this text:
 
 	 __   __   ______       _______   _______   _______   _______   ___   _   _______   ______
 	|  |_|  | |      |     |       | |       | |       | |       | |   | | | |       | |      |
@@ -21,9 +19,9 @@ v1.0
 	|_|   |_| |___|  |_|   |_______| |___|     |_______| |__| |__| |___| |_| |_______| |___|  |_|
 
 
-Select some text (possibly text with some aesthetic qualities):
+## How do you use it?
 
-Right-click and "Acxel"-ify.
+Select some text in Sublime Text (possibly text with some aesthetic qualities). Right-click and "Acxel"-ify.
 
 ![command](https://cloud.githubusercontent.com/assets/129330/5779958/ef3cd420-9d74-11e4-86d1-258c87f0298a.png)
 
