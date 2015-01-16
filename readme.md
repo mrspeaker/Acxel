@@ -21,7 +21,7 @@ Sublime Text plugin for converting text selections to  HTML5 canvas image code.
 
 ## How do you use it?
 
-Select some text in Sublime Text (possibly text with some aesthetic qualities). Right-click and "Acxel"-ify.
+Put the `Acxel` directory in your Sublime Text `Packages` directory (`Sublime Text` -> `Preferences` -> `Browse Packages...`). Select some text in Sublime Text (possibly text with some aesthetic qualities). Right-click and "Acxel"-ify.
 
 ![command](https://cloud.githubusercontent.com/assets/129330/5779958/ef3cd420-9d74-11e4-86d1-258c87f0298a.png)
 
