@@ -14,35 +14,28 @@ class AcxelCommand(sublime_plugin.TextCommand):
 		w = max([len(line) for line in lines])
 		h = len(lines)
 
-		# Let's get all JavaScript-y!
-		makey = ""
-		makey += "var can = document.createElement('canvas'), c = can.getContext('2d'),"
-		makey += "data = c.createImageData(" + str(w) + ", " + str(h) + "), i = 0;"
-		makey += "can.width = " + str(w) + "; can.height = " + str(h) + "; d = ["
+		data = []
 
 		for line in lines:
 			for i in range(w):
 				char = " " if i >= len(line) else line[i]
 				alpha = 0 if char.isspace() else 255
-				makey += "0,0,0," + str(alpha) + ","
+				data.append(0)
+				data.append(0)
+				data.append(0)
+				data.append(alpha)
 
-		makey = makey[:-1] + "]; "
-		makey += "for (i = 0; i < d.length; i++) { data.data[i] = d[i]; }; "
-		makey += "c.putImageData(data, 0, 0); "
-		makey += "document.body.appendChild(c.canvas);"
+		data = ",".join(str(d) for d in data)
+
+		# Let's get all JavaScript-y!
+		o = ""
+		o += "var can = document.createElement('canvas'), c = can.getContext('2d'), "
+		o += "data = c.createImageData(" + str(w) + ", " + str(h) + "), i = 0, d; "
+		o += "can.width = " + str(w) + "; can.height = " + str(h) + "; "
+		o += "d = [" + data + "];"
+		o += "for (i = 0; i < d.length; i++) { data.data[i] = d[i]; }; "
+		o += "c.putImageData(data, 0, 0); "
+		o += "document.body.appendChild(c.canvas);"
 
 		# to the clipboard!
-		sublime.set_clipboard(makey)
-
-
-#   __   __   ______       _______   _______   _______   _______   ___   _   _______   ______
-#  |  |_|  | |      |     |       | |       | |       | |       | |   | | | |       | |      |
-#  |       | |    _ |     |       | |       | |       | |   _   | |   | | | |       | |    _ |
-#  |       | |   | ||     |  _____| |    _  | |    ___| |  | |  | |   |_| | |    ___| |   | ||
-#  |       | |   |_||_    | |_____  |   |_| | |   |___  |  |_|  | |      _| |   |___  |   |_||_
-#  |       | |        |   |       | |       | |       | |       | |     |   |       | |        |
-#  |       | |    __  |   |_____  | |    ___| |    ___| |       | |     |_  |    ___| |    __  |
-#  | ||_|| | |   |  | |    _____| | |   |     |   |___  |   _   | |    _  | |   |___  |   |  | |
-#  | |   | | |   |  | |   |       | |   |     |       | |  | |  | |   | | | |       | |   |  | |
-#  | |   | | |   |  | |   |       | |   |     |       | |  | |  | |   | | | |       | |   |  | |
-#  |_|   |_| |___|  |_|   |_______| |___|     |_______| |__| |__| |___| |_| |_______| |___|  |_|
+		sublime.set_clipboard(o)
