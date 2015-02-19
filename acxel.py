@@ -11,6 +11,9 @@ class AcxelCommand(sublime_plugin.TextCommand):
 		else:
 			lines = [list(line) for line in self.view.substr(sel[0]).split("\n")]
 
+		# Duplicate the lines
+		lines = [val for val in lines for _ in (0, 1)]
+
 		w = max([len(line) for line in lines])
 		h = len(lines)
 
